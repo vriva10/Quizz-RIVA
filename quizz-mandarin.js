@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const progressBar = document.getElementById("progress-bar");
 
     const backToMenuButton = document.getElementById("back-to-menu");
-    const backToMainMenuButton = document.getElementById("back-to-main-menu");
+    const backToMainMenuButton = document.getElementById("back-to-main-menu"); // Récupère le bouton Menu Principal
 
     // Sélectionner un module et démarrer le quiz
     document.querySelectorAll("#module-selection button").forEach(button => {
@@ -165,9 +165,9 @@ document.addEventListener('DOMContentLoaded', function () {
         displayQuestion();
         updateProgressBar(); // Initialisation de la barre au début du quiz
         
-        // Rendre les boutons visibles
-        backToMenuButton.style.display = "block";  // Afficher "Retour au menu"
-        backToMainMenuButton.style.display = "block";  // Afficher "Menu Principal"
+        // Afficher les boutons "Retour au menu" et "Menu Principal"
+        backToMenuButton.style.display = "block";
+        backToMainMenuButton.style.display = "block"; // Afficher le bouton "Menu Principal"
     }
 
     function displayQuestion() {
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return array;
     }
 
-    // Afficher le bouton "Retour au menu" quand on commence un module
+    // Afficher les boutons à la fin du quiz
     function showButtons() {
         backToMenuButton.style.display = "block";
         backToMainMenuButton.style.display = "block";
