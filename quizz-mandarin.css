@@ -1,0 +1,119 @@
+/* Appliquer l'image de fond à toute la page */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-image: url('fond2.jpg'); /* Remplacez avec le chemin de votre image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    height: 100vh; /* S'assurer que l'image couvre toute la hauteur de la page */
+}
+
+/* Style pour le titre */
+h1 {
+    color: #007BFF;
+}
+
+/* Style pour la phrase de bienvenue */
+#welcome-text {
+    font-weight: bold; /* Mettre en gras */
+    text-shadow: 1px 1px 3px white; /* Ajouter un contour blanc */
+    font-size: 18px; /* Ajuster la taille */
+    margin-bottom: 20px; /* Espacement avec les autres éléments */
+    color: #1d31a0; /* Couleur du texte */
+}
+
+
+/* Style pour les boutons */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a button {
+    background-color: #2e8b57; /* Vert foncé */
+    color: white; /* Texte en blanc */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Effet au survol */
+a button:hover {
+    background-color: #1f6a41; /* Une teinte encore plus foncée au survol */
+}
+
+/* Style pour le conteneur du quiz */
+#quiz-container {
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #007BFF;
+    border-radius: 10px;
+    width: 300px;
+    background-color: white;
+    display: none;
+}
+
+/* Style pour le champ de réponse */
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style pour le feedback */
+#feedback {
+    margin-top: 20px;
+    font-weight: bold;
+}
+/* Conteneur de la barre de progression */
+#progress-bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+    height: 20px;
+    overflow: hidden;
+}
+
+/* Barre de progression */
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #007BFF;
+    transition: width 0.5s ease;
+}
+#back-to-menu {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#back-to-menu:hover {
+    background-color: #0056b3;
+}
