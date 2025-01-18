@@ -1,57 +1,69 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Éres géologiques et leurs dates (inspirées de la charte géologique)
-    const eras = {
-        "Hadéen": { start: "4600", end: "4000", description: "Formation de la Terre et premières croûtes continentales." },
-        "Archéen": { start: "4000", end: "2500", description: "Premières formes de vie apparues, principalement des stromatolithes." },
-        "Protérozoïque": { start: "2500", end: "541", description: "Émergence des premiers eucaryotes et multicellulaires." },
-        "Phanérozoïque": { start: "541", end: "present", description: "Divisé en trois grandes périodes : le Paléozoïque, le Mésozoïque et le Cénozoïque." },
-        "Paleozoïque": { start: "541", end: "252", description: "Apparition des premiers animaux marins et des premiers végétaux terrestres." },
-        "Mésozoïque": { start: "252", end: "66", description: "L'ère des dinosaures, extinction massive à la fin de cette période." },
-        "Cénozoïque": { start: "66", end: "present", description: "L'ère des mammifères et de l'homme, le climat se diversifie." },
-    };
+    const table = document.getElementById("geological-table");
+    const cursor = document.createElement("div");
+    cursor.id = "cursor";
+    document.body.appendChild(cursor);
 
-    let currentEra = null;
-    const eraKeys = Object.keys(eras); // Liste des ères géologiques
-    const questionElement = document.getElementById("question");
-    const feedbackElement = document.getElementById("feedback");
-    const answerInput = document.getElementById("answer");
     const validateButton = document.getElementById("validate");
+    const answerInput = document.getElementById("answer");
+    const feedbackElement = document.getElementById("feedback");
     const backToMenuButton = document.getElementById("back-to-menu");
     const backToMainMenuButton = document.getElementById("back-to-main-menu");
 
-    // Fonction pour générer une question aléatoire sur les ères géologiques
-    function generateQuestion() {
-        const randomEra = eraKeys[Math.floor(Math.random() * eraKeys.length)];
-        currentEra = eras[randomEra];
-        questionElement.textContent = `Quelle est l'ère géologique correspondant à la période ${currentEra.start} - ${currentEra.end} millions d'années ?`;
+    const eras = {
+        "Hadéen": { period: "Formation de la Terre", date: "4600-4000" },
+        "Archéen": { period: "Première vie", date: "4000-2500" },
+        "Protérozoïque": { period: "Premiers eucaryotes", date: "2500-541" },
+        "Phanérozoïque": { period: "Apparition des animaux", date: "541-252" },
+        // Ajoute plus de périodes si nécessaire
+    };
+
+    let currentPosition = null;
+
+    function randomizeCursorPosition() {
+        // Choisir une cellule aléatoire
+        const randomRow = Math.floor(Math.random() * table.rows.length);
+        const randomCell = Math.floor(Math.random() * table.rows[randomRow].cells.length);
+        
+        const cell = table.rows[randomRow].cells[randomCell];
+        
+        // Déplacer le curseur à la position choisie
+        cursor.style.left = cell.offsetLeft + "px";
+        cursor.style.top = cell.offsetTop + "px";
+        cursor.style.display = "block"; // Afficher le curseur
+        
+        currentPosition = cell; // Sauvegarder la position pour la question
+        const era = currentPosition.getAttribute('data-era');
+        const period = currentPosition.getAttribute('data-period');
+        const date = currentPosition.getAttribute('data-date');
+        
+        document.getElementById("question").textContent = `Quelle est l'ère géologique correspondant à ${period} (${date}) ?`;
     }
+
+    // Afficher une nouvelle question
+    randomizeCursorPosition();
 
     // Validation de la réponse
     validateButton.addEventListener("click", function () {
         const userAnswer = answerInput.value.trim().toLowerCase();
-        const correctAnswer = currentEra ? Object.keys(eras).find(key => key.toLowerCase() === userAnswer) : null;
+        const correctAnswer = currentPosition.getAttribute('data-era').toLowerCase();
 
-        if (correctAnswer) {
+        if (userAnswer === correctAnswer) {
             feedbackElement.textContent = "Bonne réponse !";
             feedbackElement.style.color = "green";
+            setTimeout(randomizeCursorPosition, 1000); // Nouvelle question après 1 seconde
         } else {
             feedbackElement.textContent = "Mauvaise réponse, réessayez.";
             feedbackElement.style.color = "red";
         }
     });
 
-    // Affichage du bouton "Menu Principal"
-    backToMainMenuButton.style.display = "block";  // Le bouton Menu Principal est visible dès le début
-
-    // Event listener pour le bouton "Menu Principal"
-    backToMainMenuButton.addEventListener("click", function () {
-        window.location.href = "index.html";  // Rediriger vers la page principale
+    // Event listener pour les autres boutons
+    backToMenuButton.addEventListener("click", function () {
+        // Retourner au menu secondaire
     });
 
-    // Logique pour démarrer le quiz
-    generateQuestion(); // Génère la première question
-});
-
-        window.location.href = "index.html";
+    backToMainMenuButton.addEventListener("click", function () {
+        window.location.href = "index.html";  // Rediriger vers le menu principal
     });
 });
