@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let totalQuestions = 0;
     let currentQuestionIndex = 0;
     let score = 0;
-    let shuffledQuestions = []; // Liste mélangée des questions
+    let shuffledQuestions = [];
     let progress = 0;  // Initialisation de la barre de progression
 
     const quizContainer = document.getElementById("quiz-container");
@@ -139,6 +139,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const validateButton = document.getElementById("validate");
     const restartButton = document.getElementById("restart");
     const progressBar = document.getElementById("progress-bar");
+
+    const backToMenuButton = document.getElementById("back-to-menu");
+    const backToMainMenuButton = document.getElementById("back-to-main-menu");
 
     // Sélectionner un module et démarrer le quiz
     document.querySelectorAll("#module-selection button").forEach(button => {
@@ -161,6 +164,10 @@ document.addEventListener('DOMContentLoaded', function () {
         quizContainer.style.display = "block";
         displayQuestion();
         updateProgressBar(); // Initialisation de la barre au début du quiz
+        
+        // Rendre les boutons visibles
+        backToMenuButton.style.display = "block";  // Afficher "Retour au menu"
+        backToMainMenuButton.style.display = "block";  // Afficher "Menu Principal"
     }
 
     function displayQuestion() {
@@ -239,23 +246,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return array;
     }
-    
+
     // Afficher le bouton "Retour au menu" quand on commence un module
-function startQuiz() {
-    document.getElementById("module-selection").style.display = "none";
-    quizContainer.style.display = "block";
-    displayQuestion();
-    updateProgressBar(); // Initialisation de la barre au début du quiz
-    
-    // Rendre le bouton visible
-    document.getElementById("back-to-menu").style.display = "block";
+    function showButtons() {
+        backToMenuButton.style.display = "block";
+        backToMainMenuButton.style.display = "block";
     }
 
     // Event listener pour le bouton "Retour au menu"
-    document.getElementById("back-to-menu").addEventListener("click", function () {
-    // Retour au menu
-    quizContainer.style.display = "none";
-    document.getElementById("module-selection").style.display = "block";
-    document.getElementById("back-to-menu").style.display = "none"; // Cacher à nouveau
+    backToMenuButton.addEventListener("click", function () {
+        // Retour au menu secondaire
+        quizContainer.style.display = "none";
+        document.getElementById("module-selection").style.display = "block";
+        backToMenuButton.style.display = "none"; // Cacher à nouveau
+        backToMainMenuButton.style.display = "none"; // Cacher également
+    });
+
+    // Event listener pour le bouton "Menu Principal"
+    backToMainMenuButton.addEventListener("click", function () {
+        // Rediriger vers la page principale
+        window.location.href = "index.html";  // Rediriger vers le menu principal
     });
 });
