@@ -9,41 +9,26 @@ body {
 
 /* Style pour la frise chronologique */
 #geological-timeline {
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin: 20px 0;
-    border-top: 2px solid #007BFF;
-}
-
-.era {
-    position: absolute;
-    bottom: 0;
-    width: 20px;
-    height: 40px;
-    background-color: #007BFF;
-    color: white;
+    margin-top: 20px;
     text-align: center;
-    line-height: 40px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-.era:hover {
-    background-color: #0056b3;
-}
-
-/* Style pour le tableau géologique */
-#geological-table {
+table {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
+    font-size: 18px;
 }
 
 th, td {
     padding: 15px;
     border: 1px solid #ccc;
     text-align: center;
+}
+
+td {
+    height: 50px;
+    width: 25%;
 }
 
 #cursor {
@@ -55,25 +40,23 @@ th, td {
     z-index: 10;
 }
 
-/* Style du champ de réponse et du bouton */
-input, button {
+input {
     margin-top: 20px;
     padding: 10px;
     font-size: 16px;
-}
-
-#feedback {
-    margin-top: 20px;
-    font-weight: bold;
+    width: 80%;
+    text-align: center;
 }
 
 button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
     background-color: #007BFF;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    padding: 10px 20px;
 }
 
 button:hover {
@@ -92,11 +75,4 @@ header {
 
 h1 {
     color: #007BFF;
-}
-
-input {
-    padding: 10px;
-    font-size: 16px;
-    width: 80%;
-    text-align: center;
 }
