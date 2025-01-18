@@ -143,6 +143,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const backToMenuButton = document.getElementById("back-to-menu");
     const backToMainMenuButton = document.getElementById("back-to-main-menu"); // Récupère le bouton Menu Principal
 
+    // Afficher directement le bouton "Menu Principal"
+    backToMainMenuButton.style.display = "block";  // Le bouton Menu Principal est visible dès le début
+
     // Sélectionner un module et démarrer le quiz
     document.querySelectorAll("#module-selection button").forEach(button => {
         button.addEventListener("click", () => {
@@ -245,12 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
-    }
-
-    // Afficher les boutons à la fin du quiz
-    function showButtons() {
-        backToMenuButton.style.display = "block";
-        backToMainMenuButton.style.display = "block";
     }
 
     // Event listener pour le bouton "Retour au menu"
