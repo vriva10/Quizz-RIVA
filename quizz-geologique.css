@@ -1,0 +1,37 @@
+/* Style pour la frise chronologique */
+#geological-timeline {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 20px 0;
+    border-top: 2px solid #007BFF;
+}
+
+.era {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 40px;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.era:hover {
+    background-color: #0056b3;
+}
+
+/* Style du champ de réponse et du bouton */
+input, button {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#feedback {
+    margin-top: 20px;
+    font-weight: bold;
+}
