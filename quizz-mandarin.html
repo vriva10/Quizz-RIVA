@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz Mandarin</title>
+    <link rel="stylesheet" href="css/quizz-mandarin.css"> <!-- CSS spécifique à ce quizz -->
+</head>
+<body>
+    <!-- Conteneur du bouton Retour au menu -->
+    <header>
+        <button id="back-to-menu" style="display: block;" onclick="window.location.href='index.html'">Retour au menu</button>
+    </header>
+
+    <h1>Quizz Mandarin</h1>
+    <p id="welcome-text" class="highlight">Bienvenue ! Choisissez un module pour commencer le quizz.</p>
+    
+    <!-- Sélection des modules -->
+    <div id="module-selection">
+        <button data-module="verbs">Verbes</button>
+        <button data-module="time">Moments de la journée</button>
+        <button data-module="counters">Compteurs</button>
+        <button data-module="questions">Mots interrogatifs</button>
+        <button data-module="space">Prépositions d'espace</button>
+        <button data-module="Vale">Vale</button>
+        <button data-module="Espace">Espace</button>
+        <button data-module="Couleurs">Couleurs</button>
+    </div>
+
+    <!-- Conteneur du quizz -->
+    <div id="quiz-container" style="display: none;">
+        <p id="question"></p>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <input type="text" id="answer" placeholder="Entrez votre réponse...">
+        <button id="validate">Valider</button>
+        <p id="feedback"></p>
+        <button id="restart" style="display: none;">Choisir un autre module</button>
+    </div>
+
+    <!-- Bouton pour accéder à l'option Entrainement -->
+    <div>
+        <a href="entrainement.html"><button>Entraînement</button></a>
+    </div>
+
+    <!-- Lien avec le fichier JavaScript -->
+    <script src="js/mandarin.js" defer></script> <!-- JS spécifique au quizz Mandarin -->
+</body>
+</html>
