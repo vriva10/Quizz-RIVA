@@ -3,30 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizz Géologie</title>
+    <title>Quizz Géologique</title>
     <link rel="stylesheet" href="quizz-geologique.css">
 </head>
 <body>
     <header>
-        <button id="back-to-home" style="display: none;">Retour à l'accueil</button>
+        <button id="back-to-menu">Retour au menu</button>
+        <button id="back-to-main-menu">Menu Principal</button>
     </header>
 
     <h1>Quizz Géologique</h1>
-    <p id="question"></p>
-    
+    <p id="question">Quel est le nom de l'ère géologique à cette position ?</p>
+
     <div id="geological-timeline">
-        <!-- Représentation de la frise chronologique des ères -->
-        <div class="era" data-era="Archéen" style="left: 10%;"></div>
-        <div class="era" data-era="Protérozoïque" style="left: 20%;"></div>
-        <div class="era" data-era="Phanérozoïque" style="left: 30%;"></div>
-        <!-- Ajoute d'autres ères selon la chronologie -->
+        <table id="geological-table">
+            <thead>
+                <tr>
+                    <th>Hadéen</th>
+                    <th>Archéen</th>
+                    <th>Protérozoïque</th>
+                    <th>Phanérozoïque</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-era="Hadéen" data-period="Formation de la Terre" data-date="4600-4000"></td>
+                    <td data-era="Archéen" data-period="Première vie" data-date="4000-2500"></td>
+                    <td data-era="Protérozoïque" data-period="Premiers eucaryotes" data-date="2500-541"></td>
+                    <td data-era="Phanérozoïque" data-period="Apparition des animaux" data-date="541-252"></td>
+                </tr>
+                <tr>
+                    <td data-era="Hadéen" data-period="Croûtes continentales" data-date="4600-4000"></td>
+                    <td data-era="Archéen" data-period="Stromatolithes" data-date="4000-2500"></td>
+                    <td data-era="Protérozoïque" data-period="Multicellulaires" data-date="2500-541"></td>
+                    <td data-era="Phanérozoïque" data-period="Mammifères et homme" data-date="66-présent"></td>
+                </tr>
+                <!-- Ajoute d'autres lignes pour plus de périodes -->
+            </tbody>
+        </table>
     </div>
 
-    <input type="text" id="answer" placeholder="Entrez le nom de l'ère géologique...">
+    <input type="text" id="answer" placeholder="Entrez votre réponse...">
     <button id="validate">Valider</button>
-    <p id="feedback"></p>
 
     <script src="quizz-geologique.js" defer></script>
 </body>
 </html>
-
