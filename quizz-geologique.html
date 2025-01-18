@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz Géologique</title>
+    <link rel="stylesheet" href="css/quizz-geologique.css">
+</head>
+<body>
+    <!-- Conteneur du bouton Retour au menu -->
+    <header>
+        <button id="back-to-menu">Retour au menu</button>
+    </header>
+
+    <h1>Quizz Géologique</h1>
+    <p>Complétez le tableau avec les âges géologiques correspondants aux dates.</p>
+
+    <!-- Tableau des ères géologiques -->
+    <table id="geology-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Ère Géologique</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les lignes du tableau seront ajoutées dynamiquement avec JavaScript -->
+        </tbody>
+    </table>
+
+    <div id="question-container">
+        <p id="question"></p>
+        <input type="text" id="answer" placeholder="Entrez l'ère géologique...">
+        <button id="validate-answer">Valider</button>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="js/geologie.js" defer></script>
+</body>
+</html>
