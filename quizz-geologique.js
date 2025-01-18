@@ -64,6 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     backToMainMenuButton.addEventListener("click", function () {
-        window.location.href = "index.html";  // Rediriger vers le menu principal
+        window.location.href = "index.html";  // Rediriger vers la page principale
     });
 });
