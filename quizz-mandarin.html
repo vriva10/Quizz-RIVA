@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizz Mandarin</title>
-    <link rel="stylesheet" href="css/quizz-mandarin.css"> <!-- CSS spécifique à ce quizz -->
+    <link rel="stylesheet" href="quizz-mandarin.css">
 </head>
 <body>
     <!-- Conteneur du bouton Retour au menu -->
     <header>
-        <button id="back-to-menu" style="display: block;" onclick="window.location.href='index.html'">Retour au menu</button>
+        <button id="back-to-menu" style="display: none;">Retour au menu</button>
     </header>
 
     <h1>Quizz Mandarin</h1>
-    <p id="welcome-text" class="highlight">Bienvenue ! Choisissez un module pour commencer le quizz.</p>
+    <p id="welcome-text" class="highlight">Bienvenue! Choisissez un module pour commencer le quizz.</p>
     
-    <!-- Sélection des modules -->
     <div id="module-selection">
         <button data-module="verbs">Verbes</button>
         <button data-module="time">Moments de la journée</button>
@@ -27,7 +26,6 @@
         <button data-module="Couleurs">Couleurs</button>
     </div>
 
-    <!-- Conteneur du quizz -->
     <div id="quiz-container" style="display: none;">
         <p id="question"></p>
         <div id="progress-bar-container">
@@ -39,12 +37,11 @@
         <button id="restart" style="display: none;">Choisir un autre module</button>
     </div>
 
-    <!-- Bouton pour accéder à l'option Entrainement -->
     <div>
         <a href="entrainement.html"><button>Entraînement</button></a>
     </div>
 
-    <!-- Lien avec le fichier JavaScript -->
-    <script src="js/quizz-mandarin.js" defer></script> <!-- JS spécifique au quizz Mandarin -->
+    <!-- Lien avec le fichier JS -->
+    <script src="quizz-mandarin.js" defer></script>
 </body>
 </html>
