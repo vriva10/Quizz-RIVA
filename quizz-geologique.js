@@ -1,60 +1,45 @@
-// Données des ères géologiques avec leurs dates (simplifiées)
-const geologicalPeriods = [
-    { date: "541 Ma", era: "" },
-    { date: "252 Ma", era: "" },
-    { date: "66 Ma", era: "" },
-    { date: "0", era: "" },
-];
-
-// Fonction pour afficher le tableau initial
-function displayTable() {
-    const tableBody = document.querySelector("#geology-table tbody");
-    geologicalPeriods.forEach((period, index) => {
-        const row = document.createElement("tr");
-        const dateCell = document.createElement("td");
-        const eraCell = document.createElement("td");
-        
-        dateCell.textContent = period.date;
-        eraCell.id = `era-${index}`;
-        
-        row.appendChild(dateCell);
-        row.appendChild(eraCell);
-        tableBody.appendChild(row);
-    });
-}
-
-// Sélectionner la question et préparer l'input
-function selectQuestion() {
-    const randomIndex = Math.floor(Math.random() * geologicalPeriods.length);
-    const questionElement = document.getElementById("question");
-    questionElement.textContent = `Quel est l'ère géologique correspondant à la date : ${geologicalPeriods[randomIndex].date}?`;
-    
-    // Gérer la validation
-    const validateButton = document.getElementById("validate-answer");
-    validateButton.onclick = function() {
-        const answerInput = document.getElementById("answer");
-        const feedback = document.getElementById("feedback");
-        
-        // Valider la réponse (ici on suppose une bonne réponse en fonction de la date)
-        if (answerInput.value.toLowerCase() === geologicalPeriods[randomIndex].era.toLowerCase()) {
-            feedback.textContent = "Bonne réponse !";
-            feedback.style.color = "green";
-            document.getElementById(`era-${randomIndex}`).textContent = geologicalPeriods[randomIndex].era;
-        } else {
-            feedback.textContent = "Mauvaise réponse, essayez encore !";
-            feedback.style.color = "red";
-        }
-        
-        // Effacer l'input pour la prochaine réponse
-        answerInput.value = "";
+document.addEventListener('DOMContentLoaded', function () {
+    const eras = {
+        "Archéen": { date: "3.8 à 2.5 milliards d'années" },
+        "Protérozoïque": { date: "2.5 milliards à 541 millions d'années" },
+        "Phanérozoïque": { date: "541 millions d'années à aujourd'hui" }
+        // Ajoute d'autres ères si nécessaire
     };
-}
 
-// Fonction de retour au menu
-document.getElementById("back-to-menu").addEventListener("click", function() {
-    window.location.href = 'index.html';
+    let currentEra = null;
+    const questionElement = document.getElementById("question");
+    const feedbackElement = document.getElementById("feedback");
+    const answerInput = document.getElementById("answer");
+    const validateButton = document.getElementById("validate");
+
+    // Fonction pour générer une question aléatoire
+    function generateQuestion() {
+        const eraKeys = Object.keys(eras);
+        const randomEra = eraKeys[Math.floor(Math.random() * eraKeys.length)];
+        currentEra = eras[randomEra];
+        questionElement.textContent = `Quelle est l'ère géologique correspondant à la date : ${currentEra.date}?`;
+    }
+
+    // Validation de la réponse
+    validateButton.addEventListener("click", function () {
+        const userAnswer = answerInput.value.trim().toLowerCase();
+        const correctAnswer = currentEra ? Object.keys(eras).find(key => key.toLowerCase() === userAnswer) : null;
+
+        if (correctAnswer) {
+            feedbackElement.textContent = "Bonne réponse !";
+            feedbackElement.style.color = "green";
+        } else {
+            feedbackElement.textContent = "Mauvaise réponse, réessayez.";
+            feedbackElement.style.color = "red";
+        }
+    });
+
+    // Redémarrer le quizz
+    generateQuestion();
+
+    // Affichage du bouton "Retour à l'accueil"
+    document.getElementById("back-to-home").style.display = "block";
+    document.getElementById("back-to-home").addEventListener("click", function () {
+        window.location.href = "index.html";
+    });
 });
-
-// Initialisation du tableau et de la question
-displayTable();
-selectQuestion();
