@@ -1,56 +1,39 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizz Géologique</title>
-    <link rel="stylesheet" href="quizz-geologique.css">
+    <title>Geological Time Quiz</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <button id="back-to-menu">Retour au menu</button>
-        <button id="back-to-main-menu">Menu Principal</button>
+        <h1>Geological Time Scale Quiz</h1>
+        <p>Click on the correct geological time unit for the highlighted date range!</p>
     </header>
 
-    <h1>Quizz Géologique</h1>
-    <p id="question">Quel est le nom de l'ère géologique à cette position ?</p>
+    <main>
+        <div id="quiz-container">
+            <!-- Geological time chart -->
+            <div id="time-chart">
+                <!-- Each block represents an age/period -->
+                <div class="time-block" data-name="Holocene" data-range="0-11,700">0 - 11,700 years</div>
+                <div class="time-block" data-name="Pleistocene" data-range="11,700-2.58M">11,700 years - 2.58M years</div>
+                <div class="time-block" data-name="Pliocene" data-range="2.58M-5.33M">2.58M - 5.33M years</div>
+                <div class="time-block" data-name="Miocene" data-range="5.33M-23M">5.33M - 23M years</div>
+                <!-- Add more blocks as needed -->
+            </div>
 
-    <div id="geological-timeline">
-        <table id="geological-table">
-            <thead>
-                <tr>
-                    <th>Hadéen</th>
-                    <th>Archéen</th>
-                    <th>Protérozoïque</th>
-                    <th>Phanérozoïque</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-era="Hadéen" data-period="Formation de la Terre" data-date="4600-4000"></td>
-                    <td data-era="Archéen" data-period="Première vie" data-date="4000-2500"></td>
-                    <td data-era="Protérozoïque" data-period="Premiers eucaryotes" data-date="2500-541"></td>
-                    <td data-era="Phanérozoïque" data-period="Apparition des animaux" data-date="541-252"></td>
-                </tr>
-                <tr>
-                    <td data-era="Hadéen" data-period="Croûtes continentales" data-date="4600-4000"></td>
-                    <td data-era="Archéen" data-period="Stromatolithes" data-date="4000-2500"></td>
-                    <td data-era="Protérozoïque" data-period="Multicellulaires" data-date="2500-541"></td>
-                    <td data-era="Phanérozoïque" data-period="Mammifères et homme" data-date="66-présent"></td>
-                </tr>
-                <!-- Ajoute d'autres lignes si nécessaire -->
-            </tbody>
-        </table>
-    </div>
+            <!-- Quiz prompt -->
+            <div id="quiz-prompt">
+                <p id="question">What is the name of the age/period with the range <span id="date-range"></span>?</p>
+                <input type="text" id="answer" placeholder="Enter your answer">
+                <button id="submit">Submit</button>
+                <p id="feedback"></p>
+            </div>
+        </div>
+    </main>
 
-    <input type="text" id="answer" placeholder="Entrez votre réponse...">
-    <button id="validate">Valider</button>
-
-    <script src="geologie_script.js" defer></script>
-</body>
-</html>
-
-
-    <script src="quizz-geologique.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
