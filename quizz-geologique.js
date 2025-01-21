@@ -1,69 +1,45 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const table = document.getElementById("geological-table");
-    const cursor = document.createElement("div");
-    cursor.id = "cursor";
-    document.body.appendChild(cursor);
+// script.js
+const blocks = document.querySelectorAll('.time-block');
+const question = document.getElementById('question');
+const dateRange = document.getElementById('date-range');
+const answerInput = document.getElementById('answer');
+const submitButton = document.getElementById('submit');
+const feedback = document.getElementById('feedback');
 
-    const validateButton = document.getElementById("validate");
-    const answerInput = document.getElementById("answer");
-    const feedbackElement = document.getElementById("feedback");
-    const backToMenuButton = document.getElementById("back-to-menu");
-    const backToMainMenuButton = document.getElementById("back-to-main-menu");
+let currentBlock = null;
 
-    const eras = {
-        "Hadéen": { period: "Formation de la Terre", date: "4600-4000" },
-        "Archéen": { period: "Première vie", date: "4000-2500" },
-        "Protérozoïque": { period: "Premiers eucaryotes", date: "2500-541" },
-        "Phanérozoïque": { period: "Apparition des animaux", date: "541-252" },
-        // Ajoute plus de périodes si nécessaire
-    };
+// Helper function to pick a random block
+function pickRandomBlock() {
+    const index = Math.floor(Math.random() * blocks.length);
+    return blocks[index];
+}
 
-    let currentPosition = null;
+// Start the quiz by selecting a random block
+function startQuiz() {
+    currentBlock = pickRandomBlock();
+    dateRange.textContent = currentBlock.getAttribute('data-range');
+    feedback.textContent = '';
+    answerInput.value = '';
+}
 
-    function randomizeCursorPosition() {
-        // Choisir une cellule aléatoire
-        const randomRow = Math.floor(Math.random() * table.rows.length);
-        const randomCell = Math.floor(Math.random() * table.rows[randomRow].cells.length);
-        
-        const cell = table.rows[randomRow].cells[randomCell];
-        
-        // Déplacer le curseur à la position choisie
-        cursor.style.left = cell.offsetLeft + "px";
-        cursor.style.top = cell.offsetTop + "px";
-        cursor.style.display = "block"; // Afficher le curseur
-        
-        currentPosition = cell; // Sauvegarder la position pour la question
-        const era = currentPosition.getAttribute('data-era');
-        const period = currentPosition.getAttribute('data-period');
-        const date = currentPosition.getAttribute('data-date');
-        
-        document.getElementById("question").textContent = `Quelle est l'ère géologique correspondant à ${period} (${date}) ?`;
+// Check the user's answer
+function checkAnswer() {
+    const userAnswer = answerInput.value.trim();
+    const correctAnswer = currentBlock.getAttribute('data-name');
+
+    if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+        feedback.textContent = 'Correct! Well done!';
+        feedback.style.color = 'green';
+        setTimeout(startQuiz, 2000); // Start a new question after 2 seconds
+    } else {
+        feedback.textContent = 'Incorrect. Try again!';
+        feedback.style.color = 'red';
     }
+}
 
-    // Afficher une nouvelle question
-    randomizeCursorPosition();
+// Event listener for the submit button
+submitButton.addEventListener('click', checkAnswer);
 
-    // Validation de la réponse
-    validateButton.addEventListener("click", function () {
-        const userAnswer = answerInput.value.trim().toLowerCase();
-        const correctAnswer = currentPosition.getAttribute('data-era').toLowerCase();
+// Initialize the quiz
+startQuiz();
 
-        if (userAnswer === correctAnswer) {
-            feedbackElement.textContent = "Bonne réponse !";
-            feedbackElement.style.color = "green";
-            setTimeout(randomizeCursorPosition, 1000); // Nouvelle question après 1 seconde
-        } else {
-            feedbackElement.textContent = "Mauvaise réponse, réessayez.";
-            feedbackElement.style.color = "red";
-        }
-    });
-
-    // Event listener pour les autres boutons
-    backToMenuButton.addEventListener("click", function () {
-        // Retourner au menu secondaire
-    });
-
-    backToMainMenuButton.addEventListener("click", function () {
-        window.location.href = "index.html";  // Rediriger vers la page principale
-    });
-});
