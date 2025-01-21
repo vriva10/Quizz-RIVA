@@ -32,13 +32,36 @@ function checkAnswer() {
         feedback.style.color = 'green';
         setTimeout(startQuiz, 2000); // Start a new question after 2 seconds
     } else {
-        feedback.textContent = 'Incorrect. Try again!';
+        feedback.textContent = `Incorrect! The correct answer was ${correctAnswer}. Try again!`;
         feedback.style.color = 'red';
     }
 }
 
 // Event listener for the submit button
 submitButton.addEventListener('click', checkAnswer);
+
+// Highlight the block for the current question
+function highlightBlock() {
+    blocks.forEach(block => block.classList.remove('highlight'));
+    if (currentBlock) {
+        currentBlock.classList.add('highlight');
+    }
+}
+
+// Initialize the quiz
+startQuiz();
+highlightBlock();
+
+// CSS class for highlighting the current block
+const style = document.createElement('style');
+style.textContent = `
+    .highlight {
+        background-color: #ffeb3b !important;
+        border-color: #fbc02d;
+    }
+`;
+document.head.appendChild(style);
+
 
 // Initialize the quiz
 startQuiz();
