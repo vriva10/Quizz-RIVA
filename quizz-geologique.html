@@ -1,63 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geological Time Quiz</title>
+    <title>Quizz des Temps Géologiques</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Geological Time Scale Quiz</h1>
-        <p>Click on the correct geological time unit for the highlighted date range!</p>
-    </header>
+  <header>
+    <h1>Quizz des Temps Géologiques</h1>
+    <p>Devinez les différentes périodes et âges !</p>
+  </header>
 
-    <main>
-        <div id="quiz-container">
-            <!-- Geological time chart -->
-            <div id="time-chart">
-                <!-- Eons -->
-                <div class="time-header">Eons</div>
-                <div class="time-block" data-name="Phanerozoic" data-range="541M-0">541M - Present</div>
-                <div class="time-block" data-name="Proterozoic" data-range="2.5B-541M">2.5B - 541M</div>
-                <div class="time-block" data-name="Archean" data-range="4B-2.5B">4B - 2.5B</div>
-                <div class="time-block" data-name="Hadean" data-range="4.6B-4B">4.6B - 4B</div>
+  <div class="quiz-container">
+    <table>
+      <tr>
+        <td></td>
+        <td>Ère</td>
+        <td>Période</td>
+        <td>Époque</td>
+        <td>Étage</td>
+        <td>Âge</td>
+      </tr>
+      <!-- Première ligne vide -->
+      <tr>
+        <td></td>
+        <td rowspan="2">Paléozoïque</td>
+        <td rowspan="6">Cambrien</td>
+        <td rowspan="15">Ordovicien</td>
+        <td rowspan="52">Silurien</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- 6 lignes pour la Période -->
+      <tr>
+        <td></td>
+        <td>Mésozoïque</td>
+        <td>Trias</td>
+        <td>Jurassique</td>
+        <td>Crétacé</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Mésozoïque</td>
+        <td>Trias</td>
+        <td>Jurassique</td>
+        <td>Crétacé</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Éon Phanérozoïque</td>
+        <td>Crétacé</td>
+        <td>Quaternaire</td>
+        <td></td>
+        <td>2023</td>
+      </tr>
+    </table>
+  </div>
 
-                <!-- Eras -->
-                <div class="time-header">Eras</div>
-                <div class="time-block" data-name="Cenozoic" data-range="66M-0">66M - Present</div>
-                <div class="time-block" data-name="Mesozoic" data-range="252M-66M">252M - 66M</div>
-                <div class="time-block" data-name="Paleozoic" data-range="541M-252M">541M - 252M</div>
-
-                <!-- Periods -->
-                <div class="time-header">Periods</div>
-                <div class="time-block" data-name="Quaternary" data-range="2.58M-0">2.58M - Present</div>
-                <div class="time-block" data-name="Neogene" data-range="23M-2.58M">23M - 2.58M</div>
-                <div class="time-block" data-name="Paleogene" data-range="66M-23M">66M - 23M</div>
-                <div class="time-block" data-name="Cretaceous" data-range="145M-66M">145M - 66M</div>
-                <div class="time-block" data-name="Jurassic" data-range="201M-145M">201M - 145M</div>
-                <div class="time-block" data-name="Triassic" data-range="252M-201M">252M - 201M</div>
-                <div class="time-block" data-name="Permian" data-range="299M-252M">299M - 252M</div>
-                <div class="time-block" data-name="Carboniferous" data-range="359M-299M">359M - 299M</div>
-                <div class="time-block" data-name="Devonian" data-range="419M-359M">419M - 359M</div>
-                <div class="time-block" data-name="Silurian" data-range="443M-419M">443M - 419M</div>
-                <div class="time-block" data-name="Ordovician" data-range="485M-443M">485M - 443M</div>
-                <div class="time-block" data-name="Cambrian" data-range="541M-485M">541M - 485M</div>
-            </div>
-
-            <!-- Quiz prompt -->
-            <div id="quiz-prompt">
-                <p id="question">What is the name of the age/period with the range <span id="date-range"></span>?</p>
-                <input type="text" id="answer" placeholder="Enter your answer">
-                <button id="submit">Submit</button>
-                <p id="feedback"></p>
-            </div>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
 
     <script src="script.js"></script>
 </body>
