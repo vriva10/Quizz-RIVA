@@ -1,3 +1,33 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 #time-chart {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; /* Quatre colonnes */
@@ -50,3 +80,45 @@
 .time-block[data-name="Paleogene"] {
     grid-area: periods;
 }
+
+}
+
+
+#quiz-prompt {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+}
+
+#question {
+    margin-bottom: 10px;
+}
+
+#answer {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#submit {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #45a049;
+}
+
+#feedback {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
